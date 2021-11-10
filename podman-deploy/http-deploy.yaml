@@ -12,6 +12,7 @@
     copy:
       src: /root/ws1/index.html
       dest: /home
+      remote_src: yes
   - name: Re-create a httpd container
     containers.podman.podman_container:
       name: jason-httpd
