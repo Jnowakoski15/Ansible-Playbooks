@@ -5,14 +5,28 @@
     package:
       name: "podman"
       state: present
+      
   - name: Pull an image
     containers.podman.podman_image:
       name: docker.io/library/httpd
+
   - name: Copying file into home
     copy:
       src: /root/ws1/index.html
       dest: /home
       remote_src: yes
+  
+  - name: Allow podman to mount volume 
+    community.general.sefcontext:
+      target: '/home(/.*)?'
+      setype: container_file_t
+      state: present
+    register: selinux
+
+  - name: restore SELinux Contexts
+    ansible.builtin.command: restorecon -irv /home
+    when: selinux.changed
+    
   - name: Re-create a httpd container
     containers.podman.podman_container:
       name: jason-httpd
