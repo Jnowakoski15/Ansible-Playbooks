@@ -49,4 +49,4 @@
       url: http://localhost:4444
       return_content: yes
     register: this
-    failed_when: " {{ page_output }} not in this.content"
+    failed_when: "{{ page_output }} not in this.content"
