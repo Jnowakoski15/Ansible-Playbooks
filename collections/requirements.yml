@@ -1,4 +1,4 @@
 ---
 collections:
   - name: containers.podman
-  - name: sefcontext
+  - name: community.general
