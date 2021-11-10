@@ -41,9 +41,9 @@
         - 4444:80
       volumes: /home/:/usr/local/apache2/htdocs/
     
-  - name: test httpd response is correct
+  - name: Test httpd response is correct
     uri:
       url: http://localhost:4444
       return_content: yes
-      register: this
-      failed_when: "'Jason's awesome page' not in this.content"
+    register: this
+    failed_when: "'Jason\'s awesome page' not in this.content"
