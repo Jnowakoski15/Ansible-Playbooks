@@ -5,7 +5,7 @@
     package:
       name: "podman"
       state: present
-
+      
   - name: Pull an image
     containers.podman.podman_image:
       name: docker.io/library/httpd
@@ -17,7 +17,7 @@
       remote_src: yes
   
   - name: Allow podman to mount volume 
-    redhat.rhel_system_roles.sefcontext:
+    community.general.sefcontext:
       target: '/home(/.*)?'
       setype: container_file_t
       state: present
