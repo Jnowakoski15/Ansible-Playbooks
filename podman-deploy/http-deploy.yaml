@@ -1,7 +1,7 @@
 ---
 - hosts: all
   vars:
-     page_output: Jason's awesome page
+     page_output: The page is alive
 
   tasks:
   - name: install podman
