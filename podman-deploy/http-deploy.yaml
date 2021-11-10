@@ -1,5 +1,8 @@
 ---
 - hosts: all
+  vars:
+     page_output: Jason's awesome page
+
   tasks:
   - name: install podman
     package:
@@ -46,4 +49,4 @@
       url: http://localhost:4444
       return_content: yes
     register: this
-    failed_when: "'Jason\'s awesome page' not in this.content"
+    failed_when: " {{ page_output }} not in this.content"
