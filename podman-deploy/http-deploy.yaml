@@ -1,5 +1,7 @@
 ---
-- hosts: all
+- name: Ensure httpd pod is running
+  hosts: all
+  
   vars:
      page_output: "Awesome Web Page"
 
