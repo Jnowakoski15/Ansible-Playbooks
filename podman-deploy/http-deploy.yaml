@@ -17,9 +17,9 @@
 
   - name: Index.html file is present
     copy:
-      src: /root/ws1/index.html
+      src: files/index.html
       dest: /home
-      remote_src: yes
+      remote_src: false
   
   - name: SELinux policy for httpd is enabled
     community.general.sefcontext:
