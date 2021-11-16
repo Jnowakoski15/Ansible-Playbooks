@@ -25,4 +25,4 @@
         url: http://localhost:80
         return_content: yes
       register: test_output
-      failed_when: "'{{ page_output }}' not in test_output.content"
+      failed_when: "page_output not in test_output.content"
