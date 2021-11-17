@@ -1,6 +1,8 @@
 ---
 - name: Install and start apache
   hosts: all
+  become: yes
+  
   vars:
      page_output: "Awesome Web Page"
 
